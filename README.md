@@ -98,3 +98,82 @@ su babbage
 
 
 ![Screenshot 2024-10-31 at 8 44 39 PM](https://github.com/user-attachments/assets/53b27e21-bd67-4ebc-a94b-ecbf25006b5e)
+
+
+
+## Finding Flag 4  
+- Flag 4 Indicator: Find a directory with a list of hackers. Look for a file that has read permissions for the owner, no permissions for groups, and executable only for everyone else.
+
+### Steps/Commands to Locate and Retrieve Flag 4
+
+##### 1. Navigate to the babbage user's home directory
+cd /home/babbage/
+
+##### 2. List all files and directories, including hidden ones
+ls -Ra
+
+##### 3. Switch to the Documents directory where hacker files are stored
+cd Documents
+
+##### 4. List the permissions of all files in the Documents directory
+ls -l
+
+##### 5. Filter the files with read permissions for the owner, no permissions for groups, and executable only for everyone else
+ls -l | grep "^\-r\-\-\-\-\-\-\-x"
+
+##### 6. Inspect the contents of the "stallman" file (the one with content)
+cat stallman
+
+##### 7. Retrieve the password for the stallman user
+##### The password is "computer"
+
+##### 8. Log in as the stallman user to find flag_4
+su stallman
+##### Enter the password: computer
+
+##### 9. Retrieve the flag after successfully logging in as stallman
+
+
+![Screenshot 2024-10-31 at 8 48 20 PM](https://github.com/user-attachments/assets/87873da2-6bee-4c39-978d-b3fce25127bf)
+
+
+
+## Finding Flag 5  
+- Flag 5 Indicator: This user is writing a Bash script, except it isn't quite working yet. Find it, debug it, and run it.
+
+### Steps/Commands to Locate and Retrieve Flag 5
+
+##### 1. Navigate to the stallman user's home directory
+cd
+
+##### 2. List all files and directories, including hidden ones
+ls -Ra
+
+##### 3. Go to the Documents directory where the script is located
+cd Documents/
+
+##### 4. Make the script executable
+chmod +x flag5.sh
+
+##### 5. Run the script to check for syntax errors
+./flag5.sh
+
+##### 6. Inspect the first few lines of the script to find the error
+head -6 flag5.sh
+
+##### 7. Edit the script to remove the extra "do" on line 4
+##### In the script, remove one of the "do"s, then save and exit
+
+##### 8. Run the script again to check for the next error
+./flag5.sh
+
+##### 9. Inspect the error message and notice the missing "then" in the if statement
+# Add the missing "then" after "if [ ${#file} -gt $width ]"
+
+##### 10. Run the script again
+./flag5.sh
+
+##### 11. The script will now execute correctly and display the flag:
+
+
+![Screenshot 2024-10-31 at 8 54 49 PM](https://github.com/user-attachments/assets/d8bc1a79-640f-434f-82a8-222e43d24c95)
