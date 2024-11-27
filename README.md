@@ -25,7 +25,7 @@ cd ~/Desktop/
 ls -a
 
 ##### 4. Access the flag (read the contents of .flag_1)
-cat .flag_1
+nano .flag_1
 
   
 ![Screenshot 2024-10-31 at 8 16 27 PM](https://github.com/user-attachments/assets/3a31164e-32c3-46c6-b9a5-4db7aa7559f9)
