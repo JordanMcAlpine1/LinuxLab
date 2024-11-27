@@ -10,7 +10,7 @@ This project involves performing a series of investigative tasks, including pass
 
 ---
 
-## Objective 1: Find Flag 1  
+## Finding Flag 1  
 - Flag 1 Indicator: Finding this flag is imperative to moving on quickly, as it contains the passwords from users before they are hacked. Luckily, it doesn't have a great hiding spot.
 
 ### Steps/Commands to Locate and Retrieve Flag 1  
@@ -32,7 +32,7 @@ nano .flag_1
 
 
 
-## Objective 2: Find Flag 2  
+## Finding Flag 2  
 - Flag 2 Indicator: A famous hacker had created a user on the system a year ago. Find this user, crack his password, and login to his account.
 
 ### Steps/Commands to Locate and Retrieve Flag 2  
@@ -55,3 +55,46 @@ su mitnick
 
 ![Screenshot 2024-10-31 at 8 20 08 PM](https://github.com/user-attachments/assets/6cf41d10-4099-424e-a73d-c93ebd449cc8)
 
+
+
+## Finding Flag 3  
+- Flag 3 Indicator: Find a log file related to the hacker's name and a zip file with additional info.
+
+### Steps/Commands to Locate and Retrieve Flag 3
+
+##### 1. Navigate to the mitnick user's home directory
+cd /home/mitnick
+
+##### 2. List all files and directories, including hidden ones
+ls -Ra
+
+##### 3. Identify the .secret.zip file in the Documents directory
+ls ~/Documents
+
+##### 4. View the log file in /var/log directory
+ls /var/log
+
+##### 5. Count the number of unique IP addresses in the mitnick.log file
+cat /var/log/mitnick.log | sort | uniq | wc -l
+
+##### 6. Use the count (102) as the password to unzip the secret.zip file
+unzip ~/Documents/.secret.zip
+
+##### 7. Inspect the contents of the unzipped file, which is named "babbage"
+ls
+
+##### 8. Read the contents of the "babbage" file to find the password for the babbage user
+nano babbage
+
+
+![Screenshot 2024-10-31 at 8 39 27 PM](https://github.com/user-attachments/assets/06cef98f-3301-429b-aaa9-bb08e8a05599)
+
+
+##### 9. Log in as the babbage user to find flag_3
+su babbage
+##### Enter the password: freedom
+
+##### 10. Retrieve the flag after successfully logging in as babbage
+
+
+![Screenshot 2024-10-31 at 8 44 39 PM](https://github.com/user-attachments/assets/53b27e21-bd67-4ebc-a94b-ecbf25006b5e)
