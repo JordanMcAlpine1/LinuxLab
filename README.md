@@ -203,7 +203,7 @@ cd
 alias
 
 ##### 4. Find the alias definition for 'flag' in the list:
-# alias flag='echo You found \'flag_6:$1$Qbq.XLLp$oj.BXuxR2q99bJwNEFhSH1\''
+##### alias flag='echo You found \'flag_6:$1$Qbq.XLLp$oj.BXuxR2q99bJwNEFhSH1\''
 
 ##### 5. Run the flag alias to display the flag
 flag
