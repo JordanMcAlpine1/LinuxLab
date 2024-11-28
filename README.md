@@ -290,6 +290,8 @@ john --show flags
 ##### flag_7:challenge.
 
 
+---
+
 
 ## Key Takaways: 
 This lab provided a comprehensive hands-on experience with Linux system administration, security, and command-line tools. It involved exploring directories and files using commands like `ls`, `cd`, `grep`, and `find` to locate specific content and understand file structures. A key focus was on interpreting and modifying file permissions with `chmod` and `ls -l`, emphasizing the roles of owner, group, and others in access control. Debugging shell scripts was another essential skill developed, involving the identification and correction of errors using tools like `nano` and `head`. The lab also highlighted the utility of aliases to simplify repetitive commands and how to locate and understand pre-defined configurations. 
