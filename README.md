@@ -8,6 +8,13 @@ This lab involves performing a series of investigative tasks, including password
 
 - **Linux**  
 
+## Skills Gained and Excercised
+
+- **Hands-On Linux Experience**
+- **Tool Mastery**
+- **Security Awareness**
+- **Critical Thinking**
+
 ---
 
 ## Finding Flag 1  
