@@ -22,6 +22,7 @@ This lab involves performing a series of investigative tasks, including password
 - **Password Hash Analysis and Cracking**
   - Acquired knowledge of hashing mechanisms and utilized tools like `john` to crack hashed passwords for cybersecurity analysis.
 
+
 ---
 
 ## Finding Flag 1  
