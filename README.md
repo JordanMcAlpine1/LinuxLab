@@ -11,16 +11,23 @@ This lab involves performing a series of investigative tasks, including password
 ## Skills Gained and Excercised
 
 - **Linux Command-Line Proficiency**
+  - Gained expertise in navigating file systems, managing permissions, and using powerful tools like `grep`, `nano`, and `sudo` for effective system administration.
+  
 - **Scripting and Debugging**
+  - Enhanced ability to write, execute, and troubleshoot Bash scripts, including identifying and fixing syntax errors and logical issues.
+ 
 - **Provilege Escalation Techniques**
+  - Learned how to exploit misconfigurations to elevate privileges, including leveraging `sudo` permissions and manipulating user aliases.
+ 
 - **Password Hash Analysis and Cracking**
+  - Acquired knowledge of hashing mechanisms and utilized tools like `john` to crack hashed passwords for cybersecurity analysis.
 
 ---
 
 ## Finding Flag 1  
 - Flag 1 Indicator: Finding this flag is imperative to moving on quickly, as it contains the passwords from users before they are hacked. Luckily, it doesn't have a great hiding spot.
 
-### Steps/Commands to Locate and Retrieve Flag 1  
+### Steps/Commands Used to Locate and Retrieve Flag 1  
 
 ##### 1. List all files and directories, including hidden ones
 ls -Ra
@@ -42,7 +49,7 @@ nano .flag_1
 ## Finding Flag 2  
 - Flag 2 Indicator: A famous hacker had created a user on the system a year ago. Find this user, crack his password, and login to his account.
 
-### Steps/Commands to Locate and Retrieve Flag 2  
+### Steps/Commands Used to Locate and Retrieve Flag 2  
 
 ##### 1. Navigate to the desktop directory
 cd ~/Desktop/
@@ -67,7 +74,7 @@ su mitnick
 ## Finding Flag 3  
 - Flag 3 Indicator: Find a log file related to the hacker's name and a zip file with additional info.
 
-### Steps/Commands to Locate and Retrieve Flag 3
+### Steps/Commands Used to Locate and Retrieve Flag 3
 
 ##### 1. Navigate to the mitnick user's home directory
 cd /home/mitnick
@@ -111,7 +118,7 @@ su babbage
 ## Finding Flag 4  
 - Flag 4 Indicator: Find a directory with a list of hackers. Look for a file that has read permissions for the owner, no permissions for groups, and executable only for everyone else.
 
-### Steps/Commands to Locate and Retrieve Flag 4
+### Steps/Commands Used to Locate and Retrieve Flag 4
 
 ##### 1. Navigate to the babbage user's home directory
 cd /home/babbage/
@@ -148,7 +155,7 @@ su stallman
 ## Finding Flag 5  
 - Flag 5 Indicator: This user is writing a Bash script, except it isn't quite working yet. Find it, debug it, and run it.
 
-### Steps/Commands to Locate and Retrieve Flag 5
+### Steps/Commands Used to Locate and Retrieve Flag 5
 
 ##### 1. Navigate to the stallman user's home directory
 cd
@@ -190,7 +197,7 @@ head -6 flag5.sh
 ## Finding Flag 6  
 - Flag 6 Indicator: Inspect this user's custom aliases and run the suspicious on to find the proper flag.
 
-### Steps/Commands to Locate and Retrieve Flag 6
+### Steps/Commands Used to Locate and Retrieve Flag 6
 
 ##### 1. Log in as the sysadmin user
 su sysadmin
@@ -218,7 +225,7 @@ flag
 ## Finding Flag 7  
 - Flag 7 Indicator: Find and exploit to gain a root shell.
 
-### Steps/Commands to Locate and Retrieve Flag 7
+### Steps/Commands Used to Locate and Retrieve Flag 7
 
 ##### 1. Check which commands the sysadmin user can run with sudo
 sudo -l
@@ -250,7 +257,7 @@ su root
 ## Finding Flag 8  
 - Flag 8 Indicator: Gather each of the 7 flags into a file and format it as if each flag was a username and password. Crack the passwords for the final flag.
 
-### Steps/Commands to Locate and Retrieve Flag 8
+### Steps/Commands Used to Locate and Retrieve Flag 8
 
 ##### 1. Search for all references to 'flag' in /home/ and output to the terminal
 grep -ir 'flag' /home/
