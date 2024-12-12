@@ -10,10 +10,10 @@ This lab involves performing a series of investigative tasks, including password
 
 ## Skills Gained and Excercised
 
-- **Hands-On Linux Experience**
-- **Tool Mastery**
-- **Security Awareness**
-- **Critical Thinking**
+- **Linux Command-Line Proficiency**
+- **Scripting and Debugging**
+- **Provilege Escalation Techniques**
+- **Password Hash Analysis and Cracking**
 
 ---
 
